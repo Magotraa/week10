@@ -106,10 +106,10 @@ int main()
 			lh.b_ -= dse_over_db * lr;
 
 
-			if (sqr_error < 0.01f) {
+			/*if (sqr_error < 0.00000000000000000001f) {
 				std::cout << "x_input=" << x_input << " y_target=" << y_target
 					<< " y_output=" << y_output << " sqr_error = " << sqr_error << std::endl;
-			}
+			}*/
 		}
 
 	// trained hypothesis
