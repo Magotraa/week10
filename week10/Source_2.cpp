@@ -4,14 +4,14 @@
 class LinearHypothesis
 {
 public:
-	// linear hypothesis : y = a * x + b
+	// linear hypothesis : y = a*x*x + b*x + c
 	float a_ = 0.0f;
 	float b_ = 0.0f;
 	float c_ = 0.0f;
 
 	float getY(const float& x_input)
 	{
-		return a_ * x_input * x_input  + b_ * x_input + c_ ; // returns y = a*x+b
+		return a_ * x_input * x_input  + b_ * x_input + c_ ; // returns y = a*x*x + b *x + c
 	}
 };
 
@@ -77,7 +77,7 @@ int main()
 	LinearHypothesis lh;
 
 	/*for (int tr = 0; tr < 1000; tr++)*/
-	for (int tr = 0; tr < 10000000; tr++)  //just 1 for now..
+	for (int tr = 0; tr < 1000; tr++)  //just 1 for now..
 		for (int i = 0; i < num_data; i++)
 		{
 			// let's train our linear hypothesis to answer correctly!
@@ -108,12 +108,25 @@ int main()
 			lh.b_ -= dse_over_db * lr;
 			lh.c_ -= dse_over_dc * lr;
 
-			/*std::cout << "x_input=" << x_input << " y_target=" << y_target
-				<< " y_output=" << y_output << " sqr_error = " << sqr_error << std::endl;*/
+
+
+
+			if (sqr_error < 0.7f) 
+			{
+				std::cout << "x_input=" << x_input << " y_target=" << y_target
+					<< " y_output=" << y_output << " sqr_error = " << sqr_error << std::endl;
+			}
+
+
 		}
 
+	std::cout << "        "<< std::endl;
+	std::cout << "        " << std::endl;
+	std::cout << "        " << std::endl;
+	std::cout << "        " << std::endl;
+	std::cout << "        " << std::endl;
 	// trained hypothesis
-	std::cout << "From trained hypothesis " << lh.getY(2.5) << std::endl;
+	std::cout << "From trained hypothesis when x input is lh.getY(2.5):    " << lh.getY(2.5) << std::endl;
 
 
 

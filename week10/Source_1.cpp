@@ -105,8 +105,11 @@ int main()
 			lh.a_ -= dse_over_da * lr;
 			lh.b_ -= dse_over_db * lr;
 
-			/*std::cout <<"x_input="<<x_input<<" y_target="<<y_target
-				<<" y_output="<<y_output << " sqr_error = "<< sqr_error<< std::endl;*/
+
+			if (sqr_error < 0.01f) {
+				std::cout << "x_input=" << x_input << " y_target=" << y_target
+					<< " y_output=" << y_output << " sqr_error = " << sqr_error << std::endl;
+			}
 		}
 
 	// trained hypothesis
